@@ -1,0 +1,29 @@
+{
+  "name": "a2-clustering",
+  "version": "1.0.0",
+  "description": "Clustering application",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:2dv515/student/mh225wi/a2-clustering.git"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-http-context": "^1.2.4",
+    "express-session": "^1.17.3",
+    "helmet": "^7.1.0",
+    "node-fetch": "^3.3.2",
+    "ejs": "^3.1.9"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "author": "Miranda Holmlund",
+  "license": "MIT"
+}
