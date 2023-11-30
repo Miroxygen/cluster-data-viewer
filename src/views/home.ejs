@@ -8,15 +8,15 @@
   <title>Document</title>
 </head>
 <body>
-  Hello!
   <form action="/data" method="POST">
-    <button>Hämta data</button>
+    <button id="formbutton">Hämta data</button>
   </form>
   <div id="k_data">
     <% if(data) { %>
     <% for (let index = 0; index < data.length; index++) { %>
-    <button class="drop_down">X</button>
-    <div class="data_box">
+    <button class="drop_down" data_index=<%= index %>>☁</button>
+    <div class="data_box hidden" id="div_<%= index %>">
+      <h3>Kluster <%= index + 1 %></h3>
       <% for (let j = 0; j < data[index].length; j++) { %>
         <p><%= data[index][j] %></p>
       <% } %>

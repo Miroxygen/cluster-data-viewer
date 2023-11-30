@@ -23,9 +23,13 @@ export class ClusterController {
   }
 
   async getData(req, res) {
-    const respone = await fetch("http://localhost:8083/get-kmeans")
-    const data = await respone.json()
-    this.data = data
-    res.redirect('.')
+    try {
+      const respone = await fetch("http://localhost:8083/get-kmeans")
+      const data = await respone.json()
+      this.data = data
+      res.redirect('.')
+    } catch (error) {
+      console.error(error)
+    }
   }
 }

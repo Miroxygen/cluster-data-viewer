@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
-from functions.k_means import k_means
+from functions.k_means import get_k_means_data
 
 hostname = "localhost"
 serverPort = 8083
@@ -16,6 +16,7 @@ class DataHandlerServer(BaseHTTPRequestHandler):
           self.send_response(200)
           self.send_header('Content-type','text/html')
           self.end_headers()
+          k_means = get_k_means_data()
           data_json = json.dumps(k_means)
           self.wfile.write(bytes(data_json, "utf-8"))
         else:
