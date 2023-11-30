@@ -8,7 +8,6 @@ class BlogData:
 def readfile(filename):
     with open(filename, 'r') as file:
         lines = [line for line in file]
-
     data = []
     for line in lines[1:]:
         values = line.strip().split('\t')
@@ -16,10 +15,9 @@ def readfile(filename):
         counts = [int(value) for value in values[1:]]
         blog_data = BlogData(blog_name, counts)
         data.append(blog_data)
-
     return data
 
-blog_data = readfile("src\python\\blogdata.txt")
+blog_data = readfile("src\python\\functions\\blogdata.txt")
 
 #print(blog_data[0].blog_name)
 

@@ -1,6 +1,6 @@
-from centroids import Centroid
-from blog_data import blog_data, word_stats
-from pearson import pearson
+from functions.centroids import Centroid
+from functions.blog_data import blog_data, word_stats
+from functions.pearson import pearson
 import random
 import copy
 
@@ -14,7 +14,7 @@ def k_means(data, k, max_iterations) :
     centroids.append(c)
   for _ in range(max_iterations):
     best_centroids = []
-    #[centroid.clearAssigned() for centroid in centroids]
+    [centroid.clearAssigned() for centroid in centroids]
     for blog in data:
       distance = float('inf')
       best = Centroid()
@@ -35,8 +35,17 @@ def k_means(data, k, max_iterations) :
     #if old_centroids == centroids : return
   return centroids
 
-centroids = k_means(blog_data, 5, 10)
-print(len(centroids[2].assigned))
+data = k_means(blog_data, 5, 10)
+
+k_means = []
+
+for centroid in data:
+  blognames = []
+  for blog in centroid.assigned:
+    blognames.append(blog.blog_name)
+  k_means.append(blognames)
+
+
 
 
 
