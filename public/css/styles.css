@@ -1,7 +1,24 @@
+body {
+  background-color: beige;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main {
+  background-color: antiquewhite;
+}
+
+
 form {
-  margin-left: 500px;
-  margin-top: 50px;
+  margin-left: 520px;
+  margin-top: 230px;
   position: absolute;
+}
+
+img {
+  position: absolute;
+  height: 200px;
+  border: solid;
+  margin-left: 480px;
 }
 
 #formbutton {

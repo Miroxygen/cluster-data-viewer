@@ -1,5 +1,5 @@
 
-#Creates blogdata with retriavable namespaces
+#Creates blogdata with retriavable namespaces blog_name and counts
 class BlogData:
     def __init__(self, blog_name, counts):
         self.blog_name = blog_name
@@ -19,10 +19,9 @@ def readfile(filename):
 
 blog_data = readfile("src\python\\functions\\blogdata.txt")
 
-#print(blog_data[0].blog_name)
-
+#Creates an array with min-max values for word, making it hardcoded but
+#saving time when running k_means
 word_stats = {}
-i = 0
 for data in blog_data:
     counts = data.counts
     for word_index, count in enumerate(counts):
@@ -33,5 +32,4 @@ for data in blog_data:
             word_stats[word_name]['min'] = min(word_stats[word_name]['min'], count)
             word_stats[word_name]['max'] = max(word_stats[word_name]['max'], count)
 
-#print(word_stats[1]['min'])
 

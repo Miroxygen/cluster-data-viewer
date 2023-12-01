@@ -1,6 +1,7 @@
 import math
 
-#Pearson for blogwordcount
+#Pearson for blogwordcount.
+#Hardcoded values, only works for k_means.
 def pearson(centroid, blog) :
   sumC = 0; sumB = 0; sumCsq = 0; sumBsq = 0; pSum = 0
   no_of_words = 706

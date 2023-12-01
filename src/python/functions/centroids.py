@@ -5,10 +5,9 @@ class Centroid:
   #Initierar en instans.
   def __init__(self):
     self.assigned = []
-    self.old = []
     self.word_count = {}
 
-  #Initiera centroidens position.
+  #Sätter centroidens position.
   def set_word_count(self, i, värde):
     self.word_count[i] = {"count" : värde}
 
@@ -16,11 +15,7 @@ class Centroid:
   def assign(self, blogg) : 
     self.assigned.append(blogg)
 
-  #Lägger nodes från assigned till old,
-  #för att kunna assigna nya och sen jämföra.
+  #Tar bort noder från assigned
+  #så att det inte blir dubletter.
   def clearAssigned(self) :
-    self.old = self.assigned
     self.assigned.clear()
-  
-  def getAssigned(self):
-    return self.assigned

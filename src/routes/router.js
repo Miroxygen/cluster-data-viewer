@@ -1,3 +1,11 @@
+/**
+ * @file Defines routes for application.
+ * @module routes/router
+ * @author Miranda Holmlund
+ * @version 1.0
+ */
+
+
 import express from 'express'
 import { ClusterController } from '../controllers/controller.js'
 

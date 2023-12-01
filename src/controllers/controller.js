@@ -17,11 +17,25 @@ export class ClusterController {
     this.data
   }
 
+  /**
+   * Gets front page of application.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
+   */
   showFrontPage(req, res) {
-    const data = this.data
-    res.render('home', { data })
+    try {
+      const data = this.data
+      res.render('home', { data })
+    } catch (error) {
+      console.error(error)
+    }
   }
 
+  /**
+   * Fetches data from k-means service.
+   * @param {object} req Express request object.
+   * @param {object} res Express response object.
+   */
   async getData(req, res) {
     try {
       const respone = await fetch("http://localhost:8083/get-kmeans")

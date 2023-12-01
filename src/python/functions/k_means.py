@@ -3,6 +3,7 @@ from functions.blog_data import blog_data, word_stats
 from functions.pearson import pearson
 import random
 
+#Creates an array of Centroids with clusters
 def k_means(data, k) :
   num_of_words = 706
   centroids = []
@@ -37,6 +38,7 @@ def k_means(data, k) :
             centroid.set_word_count(i, avg)
   return centroids
 
+#Manages the centroids into sendable data for json format.
 def get_k_means_data() :
   data = k_means(blog_data, 5)
   k_data = []

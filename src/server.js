@@ -1,3 +1,10 @@
+/**
+ * @file Defines starting point of application.
+ * @module server
+ * @author Miranda Holmlund
+ * @version 1.0
+ */
+
 import express from 'express'
 import session from 'express-session'
 import helmet from 'helmet'
@@ -19,16 +26,16 @@ try {
   app.use(express.static(join(directoryFullName, '..', 'public')))
   app.use(express.urlencoded({ extended: false }))
 
-app.use(session({
-    secret: 'MYSUPERSECRET',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        secure: false, // if true only transmit cookie over https
-        httpOnly: false, // if true prevent client side JS from reading the cookie 
-        maxAge: 1000 * 60 * 10 // session max age in miliseconds
-    }
-}))
+  app.use(session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+          secure: false, // if true only transmit cookie over https
+          httpOnly: false, // if true prevent client side JS from reading the cookie 
+          maxAge: 1000 * 60 * 10 // session max age in miliseconds
+      }
+  }))
 
   app.listen(process.env.PORT, () => {
     console.log(`Server running at http://localhost:${process.env.PORT}`)
