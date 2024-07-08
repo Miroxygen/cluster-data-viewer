@@ -1,75 +1,57 @@
-# A2 - Clustering
+# Cluster Data Viewer
 
-## Description
+## Features
 
-* In this assignment, you shall implement clustering on the blogs dataset containing 99 blogs.
-* You can use any programming language you like.
-* You shall present your application and code at an oral examination.
+- Fetch clustered blog data from a k-means service.
+- Display clusters interactively, allowing users to expand and collapse each cluster for detailed view.
+- Front-end interface built with HTML, CSS, and JavaScript.
+- Back-end server implemented with Express.js.
+- K-means clustering performed by a Python service.
 
-## Submission instructions
+## Installation
 
-See the [Deadlines and Submissions](https://coursepress.lnu.se/courses/web-intelligence/study-guide/deadlines-and-submissions) page.
+1. Clone the repository:
 
-## Requirements
+2. Install Node.js dependencies:
 
-<table>
-  <tr>
-    <th>Grade</th>
-    <th>Requirements</th>
-  </tr>
-  <tr>
-    <td>E</td>
-    <td>
-      <ul>
-        <li>Implement K-means Clustering with Pearson similarity.</li>
-        <li>Run the algorithm on the <em>blog data</em> dataset (see <a href="https://coursepress.lnu.se/courses/web-intelligence/assignments/datasets">Datasets</a> page) with five clusters.</li>
-        <li>The iteration shall stop after a specified number of iterations.</li>
-        <li>Present the result as a list of clusters and their assignments.</li>
-        <li>Implement the system using a REST web service where:
-          <ol>
-            <li>client sends a request to a server.</li>
-            <li>the server responds with <em>json</em> data.</li>
-            <li>the <em>json</em> data is decoded and presented in a client GUI.</li>
-          </ol>
-        </li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>C-D</td>
-    <td>
-      <ul>
-        <li>Instead of stopping after a specified number of iterations, you shall implement functionality for stopping when no new assignments are made.</li>
-        <li>Each cluster must keep track of the previous assignment, and a check is made if the new cluster assignment matches the previous one.</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>A-B</td>
-    <td>
-      <ul>
-        <li>Implement Hierarchical Clustering with Pearson similarity.</li>
-        <li>Run the algorithm on the <em>blog data</em> dataset.</li>
-        <li>Present the result as an interactive tree in the client GUI (it shall be possible to expand/collapse branches).</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+- npm install
 
-## Test cases
+3. Install Python dependencies:
 
-### K-means
+- pip install -r requirements.txt
 
-K-means is not deterministic (the results differ between runs), but you usually find related blogs such as the Google and search engine blogs in one cluster as shown here:
+4. Set up the environment variables by creating a .env file in the root directory. Add the following environment variables:
 
-![resources/A2-Kmeans.png](.readme/A2-Kmeans.png)
+- SESSION_SECRET=your-session-secret
+- PORT=your-server-port
 
->Note that you can make some performance improvements to speed up the cluster generation. In comparison, my implementation in Python takes around 3 seconds to generate the clusters and build a JSON response.
+## Usage
 
-### Hierarchical
+1. Start the Python k-means clustering service:
+ 
+ - python src/python/server.py
 
-Hierarchical clustering always gives the same result. The tree is too large to show here, but if you get the branch shown below, it most likely works correctly:
+2. Start the Express.js server:
 
-![resources/A2-Hierarchical.png](.readme/A2-Hierarchical.png)
+ - npm start
 
->Note that there are many performance improvements you can make to speed up tree generation. As a comparison, my implementation in Python takes around 10 seconds to generate the tree and build a JSON response.
+3. Open your browser and navigate to http://localhost:your-server-port to access the application.
+
+
+## How It Works
+
+### Frontend
+
+The front end is built using HTML, CSS, and JavaScript. It provides a simple interface for fetching and displaying clustered data. The index.js file contains event listeners for toggling the visibility of clusters.
+
+### Backend
+
+The backend is implemented using Express.js. It serves the front-end files and provides endpoints for fetching k-means clustered data. The main server logic is defined in server.js and the routes are handled in router.js.
+
+### K-means Clustering Service
+
+The k-means clustering algorithm is implemented in Python. The server.py file sets up an HTTP server that provides clustered data when requested. The clustering logic and related functions are defined in the functions directory.
+
+## License
+
+This project is licensed under the MIT License.
